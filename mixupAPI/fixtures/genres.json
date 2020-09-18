@@ -1,0 +1,79 @@
+[
+  {
+    "model": "mixupAPI.genre",
+    "pk": 1,
+    "fields": {
+      "genre_name": "House"
+    }
+  },
+  {
+    "model": "mixupAPI.genre",
+    "pk": 2,
+    "fields": {
+      "genre_name": "Trap"
+    }
+  },
+  {
+    "model": "mixupAPI.genre",
+    "pk": 3,
+    "fields": {
+      "genre_name": "Hip Hop"
+    }
+  },
+  {
+    "model": "mixupAPI.genre",
+    "pk": 4,
+    "fields": {
+      "genre_name": "Glitch Hop"
+    }
+  },
+  {
+    "model": "mixupAPI.genre",
+    "pk": 5,
+    "fields": {
+      "genre_name": "R&B"
+    }
+  },
+  {
+    "model": "mixupAPI.genre",
+    "pk": 6,
+    "fields": {
+      "genre_name": "Dubstep"
+    }
+  },
+  {
+    "model": "mixupAPI.genre",
+    "pk": 7,
+    "fields": {
+      "genre_name": "Pop"
+    }
+  },
+  {
+    "model": "mixupAPI.genre",
+    "pk": 8,
+    "fields": {
+      "genre_name": "Mongolian Throat Singing"
+    }
+  },
+  {
+    "model": "mixupAPI.genre",
+    "pk": 9,
+    "fields": {
+      "genre_name": "Power Metal"
+    }
+  },
+  {
+    "model": "mixupAPI.genre",
+    "pk": 10,
+    "fields": {
+      "genre_name": "Futurecore"
+    }
+  },
+  {
+    "model": "mixupAPI.genre",
+    "pk": 11,
+    "fields": {
+      "genre_name": "Future Bass"
+    }
+  }
+]

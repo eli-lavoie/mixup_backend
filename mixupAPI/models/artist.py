@@ -4,7 +4,7 @@ from django.db import models
 from django.db.models import F
 from django.contrib.auth.models import User
 
-class artist(models.Model):
+class Artist(models.Model):
   """This class is the model for an artist"""
 
   user = models.OneToOneField(User, on_delete=models.CASCADE)
