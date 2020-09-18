@@ -1,7 +1,7 @@
 """This file handles import/export of model classes"""
 
-from .artist import artist
-from .genre import genre
-from .track import track
-from .collaborator import collaborator
-from .track_file import track_file
+from .artist import Artist
+from .genre import Genre
+from .track import Track
+from .collaborator import Collaborator
+from .track_file import Track_File

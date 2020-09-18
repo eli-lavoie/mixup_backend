@@ -2,15 +2,15 @@
 
 from django.db import models
 from django.db.models import F
-from .track import track
-from .artist import artist
+from .track import Track
+from .artist import Artist
 
-class track_file(models.Model):
+class Track_File(models.Model):
 
   name = models.CharField(max_length=30)
   description = models.CharField(max_length=75)
-  track = models.OneToOneField(track, on_delete=models.CASCADE)
-  artist = models.OneToOneField(artist, on_delete=models.CASCADE)
+  track = models.OneToOneField(Track, on_delete=models.CASCADE)
+  artist = models.OneToOneField(Artist, on_delete=models.CASCADE)
   url = models.CharField(max_length=150)
   dateUploaded = models.DateField(auto_now_add=True)
 

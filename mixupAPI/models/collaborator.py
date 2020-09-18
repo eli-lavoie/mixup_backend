@@ -2,13 +2,13 @@
 
 from django.db import models
 from django.db.models import F
-from .track import track
-from .artist import artist
+from .track import Track
+from .artist import Artist
 
-class collaborator(models.Model):
+class Collaborator(models.Model):
 
-  track = models.OneToOneField(track, on_delete=models.CASCADE)
-  artist = models.OneToOneField(artist, on_delete=models.CASCADE)
+  track = models.OneToOneField(Track, on_delete=models.CASCADE)
+  artist = models.OneToOneField(Artist, on_delete=models.CASCADE)
 
   class Meta:
       verbose_name = ("collaborator")

@@ -2,16 +2,17 @@
 
 from django.db import models
 from django.db.models import F
-from .artist import artist
-from .genre import genre
+from .artist import Artist
+from .genre import Genre
 
-class track(models.Model):
+class Track(models.Model):
 
-  creatorId = models.OneToOneField(artist, on_delete=models.CASCADE)
+  creatorId = models.OneToOneField(Artist, on_delete=models.CASCADE)
+  track_name = models.CharField(max_length=30, null=True)
   dateCreated = models.DateField(auto_now_add=True)
   lastUpdated = models.DateField(auto_now=True)
   openForRemix = models.BooleanField()
-  genre = models.OneToOneField(genre, on_delete=models.CASCADE)
+  genre = models.OneToOneField(Genre, on_delete=models.CASCADE)
   bpm = models.IntegerField()
 
   class Meta:

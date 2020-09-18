@@ -3,7 +3,7 @@
 from django.db import models
 from django.db.models import F
 
-class genre(models.Model):
+class Genre(models.Model):
 
   genre_name = models.CharField(max_length=50)
 
