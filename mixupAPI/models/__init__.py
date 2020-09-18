@@ -4,4 +4,4 @@ from .artist import artist
 from .genre import genre
 from .track import track
 from .collaborator import collaborator
-from .file import track_file
+from .track_file import track_file
