@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from mixupAPI.views import s3_link
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('create_signed_link', s3_link.as_view(), name='s3_link'),
 ]
