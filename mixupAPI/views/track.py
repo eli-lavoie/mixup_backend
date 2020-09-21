@@ -31,32 +31,33 @@ class Tracks(ViewSet):
     except Exception as ex:
       return HttpResponseServerError(ex)
 
-    def list(self, request):
-      tracks = Track.objects.all()
-      serializer = TrackSerializer(
-        tracks,
-        many=True,
-        context={'request': request}
-      )
-      return Response(serializer.data)
+  def list(self, request):
+    tracks = Track.objects.all()
+    serializer = TrackSerializer(
+      tracks,
+      many=True,
+      context={'request': request}
+    )
+    return Response(serializer.data)
 
-    def create(self, request):
-      """Handles a POST operation for creating a track"""
+  def create(self, request):
+    """Handles a POST operation for creating a track"""
 
-      artist = Artist.objects.get(user=request.auth.user)
-      genre = Genre.objects.get(pk=request.data['genre_id'])
+    artist = Artist.objects.get(user=request.auth.user)
+    genre = Genre.objects.get(pk=request.data['genre_name'])
+    today = datetime.date.today()
+    date = today.strftime('%Y/%m/%d')
 
+    new_track = Track()
+    new_track.creatorId = artist
+    new_track.track_name = request.data["track_name"]
+    new_track.dateCreated = date
+    new_track.lastUpdated = date
+    new_track.openForRemix = request.data['open_for_remix']
+    new_track.genre = genre
+    new_track.bpm = request.data['bpm']
 
-      new_track = Track()
-      new_track.creatorId = artist
-      new_track.track_name = request.data["track_name"]
-      new_track.dateCreated = datetime.now
-      new_track.lastUpdated = datetime.now
-      new_track.openForRemix = request.data['open_for_remix']
-      new_track.genre = genre
-      new_track.bpm = request.data['bpm']
+    new_track.save()
 
-      new_track.save()
-
-      serializer = TrackSerializer(new_track, context={'request': request})
-      return Response(serializer.data)
+    serializer = TrackSerializer(new_track, context={'request': request})
+    return Response(serializer.data)

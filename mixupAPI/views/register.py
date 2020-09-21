@@ -4,7 +4,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from django.views.decorators.csrf import csrf_exempt
-from mixupAPI.models import artist
+from mixupAPI.models import Artist
 
 
 @csrf_exempt
@@ -56,8 +56,9 @@ def register_user(request):
         password=req_body['password'],
     )
 
-    new_artist = artist.objects.create(
-        user=new_user
+    new_artist = Artist.objects.create(
+        user=new_user,
+        artist_name=new_user.username
     )
 
     # Commit the user to the database by saving it

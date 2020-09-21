@@ -20,11 +20,13 @@ from rest_framework.authtoken.views import obtain_auth_token
 from mixupAPI.models import *
 from mixupAPI.views import s3_link
 from mixupAPI.views import register_user, login_user
-from mixupAPI.views import Tracks, Genres
+from mixupAPI.views import *
 
 router = routers.DefaultRouter(trailing_slash=False)
-router.register(r'tracks', Tracks, 'tracks')
 router.register(r'genres', Genres, 'genre')
+router.register(r'tracks', Tracks, 'track')
+router.register(r'artists', Artists, 'artist')
+
 urlpatterns = [
     path('', include(router.urls)),
     path('register/', register_user),
