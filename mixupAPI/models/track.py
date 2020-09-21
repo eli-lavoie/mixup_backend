@@ -12,7 +12,7 @@ class Track(models.Model):
   dateCreated = models.DateField(auto_now_add=True)
   lastUpdated = models.DateField(auto_now=True)
   openForRemix = models.BooleanField()
-  genre = models.OneToOneField(Genre, on_delete=models.CASCADE)
+  genre = models.ForeignKey(Genre, on_delete=models.DO_NOTHING)
   bpm = models.IntegerField()
 
   class Meta:

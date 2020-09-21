@@ -8,6 +8,7 @@ class Artist(models.Model):
   """This class is the model for an artist"""
 
   user = models.OneToOneField(User, on_delete=models.CASCADE)
+  artist_name = models.CharField(max_length=30)
 
   class Meta:
       verbose_name = ("artist")
