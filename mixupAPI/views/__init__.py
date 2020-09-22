@@ -5,3 +5,4 @@ from .register import login_user
 from .genres import Genres
 from .track import Tracks
 from .artists import Artists
+from .track_files import Track_Files

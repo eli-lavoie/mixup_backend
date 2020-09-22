@@ -26,6 +26,7 @@ router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'genres', Genres, 'genre')
 router.register(r'tracks', Tracks, 'track')
 router.register(r'artists', Artists, 'artist')
+router.register(r'files', Track_Files, 'file')
 
 urlpatterns = [
     path('', include(router.urls)),
