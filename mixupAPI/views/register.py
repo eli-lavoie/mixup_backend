@@ -28,7 +28,8 @@ def login_user(request):
         # If authentication was successful, respond with their token
         if authenticated_user is not None:
             token = Token.objects.get(user=authenticated_user)
-            data = json.dumps({"valid": True, "token": token.key})
+            userId = authenticated_user.id
+            data = json.dumps({"valid": True, "token": token.key, "userId": userId})
             return HttpResponse(data, content_type='application/json')
 
         else:
@@ -66,7 +67,8 @@ def register_user(request):
 
     # Use the REST Framework's token generator on the new user account
     token = Token.objects.create(user=new_user)
+    userId = new_user.id
 
     # Return the token to the client
-    data = json.dumps({"token": token.key})
+    data = json.dumps({"token": token.key, "userId": userId})
     return HttpResponse(data, content_type='application/json')
