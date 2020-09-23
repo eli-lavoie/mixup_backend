@@ -79,3 +79,24 @@ class Tracks(ViewSet):
 
     except Exception as ex:
       return Response({'message': ex.args[0]}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+  def update(self, request, pk=None):
+    """Handle PUT requests for track details
+      Returns:
+        Response -- Empty body with 204 status code
+    """
+
+    track = Track.objects.get(pk=pk)
+    today = datetime.date.today()
+    date = today.strftime('%Y/%m/%d')
+    genre = Genre.objects.get(pk=request.data['genre_name'])
+
+    track.track_name = request.data['track_name']
+    track.lastUpdated = date
+    track.openForRemix = request.data['openForRemix']
+    track.genre = genre
+    track.bpm = request.data['bpm']
+
+    track.save()
+    return Response({}, status=status.HTTP_204_NO_CONTENT)
+
