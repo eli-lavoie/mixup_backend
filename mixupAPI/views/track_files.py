@@ -57,11 +57,3 @@ class Track_Files(ViewSet):
 
     serializer = TrackFileSerializer(new_file, context={'request': request})
     return Response(serializer.data)
-
-  def get_queryset(self, request):
-    track_id = self.request.query_params.get('track_id')
-
-    queryset = Track_File.objects.all.filter(track=track_id)
-
-    serializer = TrackFileSerializer(queryset, many=True, context={'request': request})
-    return Response(serializer.data)

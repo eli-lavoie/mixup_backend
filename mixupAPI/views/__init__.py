@@ -6,3 +6,4 @@ from .genres import Genres
 from .track import Tracks
 from .artists import Artists
 from .track_files import Track_Files
+from .collaborators import Collaborators
