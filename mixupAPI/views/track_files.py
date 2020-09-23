@@ -29,6 +29,10 @@ class Track_Files(ViewSet):
 
   def list(self, request):
     files = Track_File.objects.all()
+    track = self.request.query_params.get('track', None)
+
+    if track is not None:
+      files = files.filter(track__id=track)
 
     serializer = TrackFileSerializer(files, many=True, context={'request': request})
     
@@ -52,4 +56,12 @@ class Track_Files(ViewSet):
     new_file.save()
 
     serializer = TrackFileSerializer(new_file, context={'request': request})
+    return Response(serializer.data)
+
+  def get_queryset(self, request):
+    track_id = self.request.query_params.get('track_id')
+
+    queryset = Track_File.objects.all.filter(track=track_id)
+
+    serializer = TrackFileSerializer(queryset, many=True, context={'request': request})
     return Response(serializer.data)

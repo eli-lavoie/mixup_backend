@@ -7,7 +7,7 @@ from .genre import Genre
 
 class Track(models.Model):
 
-  creatorId = models.OneToOneField(Artist, on_delete=models.CASCADE)
+  creatorId = models.ForeignKey(Artist, on_delete=models.CASCADE)
   track_name = models.CharField(max_length=30, null=True)
   dateCreated = models.DateField(auto_now_add=True)
   lastUpdated = models.DateField(auto_now=True)
