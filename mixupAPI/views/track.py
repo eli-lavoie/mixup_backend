@@ -34,6 +34,7 @@ class Tracks(ViewSet):
   def list(self, request):
     tracks = Track.objects.all()
     remixable = self.request.query_params.get('remixable', None)
+
     if remixable is not None:
       tracks = tracks.filter(openForRemix=remixable)
 

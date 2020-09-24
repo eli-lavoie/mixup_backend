@@ -29,5 +29,4 @@ class s3_link(APIView):
       "signed_url": presigned_post,
       "url": 'https://%s.s3.amazonaws.com/%s' % (s3_bucket, file_name)
     }
-    # print(json.dumps(data))
     return HttpResponse(json.dumps(data))

@@ -53,6 +53,7 @@ class Artists(ViewSet):
   def list(self, request):
     artists = Artist.objects.all()
     name = self.request.query_params.get('artist_name', None)
+    
     if name is not None:
       artists = artists.filter(artist_name=name)
 
