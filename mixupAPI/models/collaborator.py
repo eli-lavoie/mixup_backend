@@ -7,8 +7,8 @@ from .artist import Artist
 
 class Collaborator(models.Model):
 
-  track = models.OneToOneField(Track, on_delete=models.CASCADE)
-  artist = models.OneToOneField(Artist, on_delete=models.CASCADE)
+  track = models.ForeignKey(Track, on_delete=models.CASCADE)
+  artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
 
   class Meta:
       verbose_name = ("collaborator")

@@ -19,6 +19,11 @@ class Collaborators(ViewSet):
 
   def list(self, request):
     collaborators = Collaborator.objects.all()
+    track = self.request.query_params.get('track', None)
+
+    if track is not None:
+      collaborators = collaborators.filter(track__id=track)
+
     serializer = CollaboratorSerializer(collaborators, many=True, context={'request': request} )
 
     return Response(serializer.data)
